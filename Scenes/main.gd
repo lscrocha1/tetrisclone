@@ -1,4 +1,6 @@
 extends Node2D
 
-func _on_ground_body_entered(shape: Shape) -> void:
-	shape.stop()
+@onready var game_manager: Node = $GameManager
+
+func _ready() -> void:
+	game_manager.spawn_shape()

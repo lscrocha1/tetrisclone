@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://brdskfghjhix2"]
+[gd_scene load_steps=6 format=3 uid="uid://brdskfghjhix2"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_hsry7"]
 [ext_resource type="Texture2D" uid="uid://kbri0ll28bmv" path="res://Assets/background.png" id="1_jnfi1"]
-[ext_resource type="PackedScene" uid="uid://0lpeta12jh1m" path="res://Scenes/o_block.tscn" id="2_jyoyx"]
+[ext_resource type="PackedScene" uid="uid://cy7fs1foy7dce" path="res://Scenes/shape_spawner.tscn" id="4_6l3xb"]
+[ext_resource type="Script" path="res://Scenes/game_manager.gd" id="4_voj6b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_thm7c"]
 size = Vector2(304, 22)
@@ -19,13 +20,15 @@ texture = ExtResource("1_jnfi1")
 region_enabled = true
 region_rect = Rect2(0, 0, 300, 600)
 
-[node name="OBlock" parent="." instance=ExtResource("2_jyoyx")]
-position = Vector2(-15, -346)
-
 [node name="Ground" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 position = Vector2(1, 310)
 shape = SubResource("RectangleShape2D_thm7c")
 
-[connection signal="body_entered" from="Ground" to="." method="_on_ground_body_entered"]
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("4_voj6b")
+
+[node name="ShapeSpawner" parent="." instance=ExtResource("4_6l3xb")]
+
+[connection signal="body_entered" from="Ground" to="GameManager" method="_on_ground_body_entered"]

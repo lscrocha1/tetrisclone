@@ -1,6 +1,6 @@
 extends Shape
 
-class_name OBlock 
+class_name IBlock 
 
 const BLOCK_FALL_SPEED: float = 30.0
 
