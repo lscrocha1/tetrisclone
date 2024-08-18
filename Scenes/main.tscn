@@ -11,8 +11,6 @@ size = Vector2(304, 22)
 [node name="Main" type="Node2D"]
 script = ExtResource("1_hsry7")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 1
 texture_repeat = 2
@@ -30,5 +28,7 @@ shape = SubResource("RectangleShape2D_thm7c")
 script = ExtResource("4_voj6b")
 
 [node name="ShapeSpawner" parent="." instance=ExtResource("4_6l3xb")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="body_entered" from="Ground" to="GameManager" method="_on_ground_body_entered"]

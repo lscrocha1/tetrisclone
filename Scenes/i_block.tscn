@@ -4,26 +4,27 @@
 [ext_resource type="Script" path="res://Scenes/i_block.gd" id="1_fp6y6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uu1sf"]
-size = Vector2(64, 256)
+size = Vector2(30, 120)
 
 [node name="IBlock" type="CharacterBody2D"]
+position = Vector2(-15, -45)
 script = ExtResource("1_fp6y6")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 texture = ExtResource("1_dhf4m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 64)
+position = Vector2(0, 30)
 texture = ExtResource("1_dhf4m")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(0, 128)
+position = Vector2(0, 60)
 texture = ExtResource("1_dhf4m")
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
-position = Vector2(0, 192)
+position = Vector2(0, 90)
 texture = ExtResource("1_dhf4m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 96)
+position = Vector2(0, 45)
 shape = SubResource("RectangleShape2D_uu1sf")

@@ -7,10 +7,11 @@ var o_block = preload("res://Scenes/o_block.tscn")
 
 func spawn() -> void:
 	var shape = _get_shape()
-	var size = get_viewport().get_camera_2d().position
-	print_debug(size)
-	shape.position = Vector2(0, 0)
+	var viewport_rect_size = get_viewport().get_camera_2d().get_viewport_rect().size
+	# this seems like an over complicated calculation 
+	# for spawning the block at the top of the camera
+	shape.position = Vector2(shape.position.x, (((shape.position.y * -2) + (viewport_rect_size.y / 2)) * -1) - (shape.position.y * -1))
 	add_child(shape)
 	
 func _get_shape() -> Shape:
-	return o_block.instantiate()
+	return i_block.instantiate()

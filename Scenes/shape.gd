@@ -8,6 +8,13 @@ var _block_move_speed: float = 30.0
 
 func _init(speed: float) -> void:
 	_block_fall_speed = speed
+	
+func _ready() -> void:
+	var timer = Timer.new()
+	timer.wait_time = 1.0
+	timer.autostart = true
+	timer.timeout.connect(_on_timer_timeout)
+	add_child(timer)
 
 func _on_timer_timeout() -> void:
 	if not _is_block_frozen:
@@ -15,6 +22,7 @@ func _on_timer_timeout() -> void:
 
 func _move_block_downward() -> void:
 	position.y += _block_fall_speed
+	print_debug(position)
 
 func _process(_delta) -> void:
 	if not _is_block_frozen:
