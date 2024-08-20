@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://0lpeta12jh1m"]
+[gd_scene load_steps=5 format=3 uid="uid://0lpeta12jh1m"]
 
 [ext_resource type="Texture2D" uid="uid://uit4f7caqarb" path="res://Assets/block-yellow.png" id="1_23lde"]
 [ext_resource type="Script" path="res://Scenes/o_block.gd" id="1_qm88f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmsom"]
 size = Vector2(60, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d677p"]
+size = Vector2(7, 0.0499992)
 
 [node name="OBlock" type="CharacterBody2D"]
 position = Vector2(-15, -15)
@@ -28,3 +31,9 @@ texture = ExtResource("1_23lde")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(15, 15)
 shape = SubResource("RectangleShape2D_tmsom")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(15, -15.08)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_d677p")

@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://badergpl5pqin"]
+[gd_scene load_steps=5 format=3 uid="uid://badergpl5pqin"]
 
 [ext_resource type="Texture2D" uid="uid://ix5gkgark546" path="res://Assets/block-cyan.png" id="1_dhf4m"]
 [ext_resource type="Script" path="res://Scenes/i_block.gd" id="1_fp6y6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uu1sf"]
 size = Vector2(30, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7ksf"]
+size = Vector2(20, 0.0999985)
 
 [node name="IBlock" type="CharacterBody2D"]
 position = Vector2(-15, -45)
@@ -28,3 +31,11 @@ texture = ExtResource("1_dhf4m")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 45)
 shape = SubResource("RectangleShape2D_uu1sf")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -15.1)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_v7ksf")
